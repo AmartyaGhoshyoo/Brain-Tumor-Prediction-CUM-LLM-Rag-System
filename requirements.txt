@@ -1,0 +1,15 @@
+streamlit
+tensorflow==2.13.0
+scikit-image
+seaborn 
+opencv-python-headless
+google-generativeai
+huggingface-hub
+faiss-cpu
+unstructured
+langchain-google-genai
+sentence-transformers
+python-dotenv
+pypdf2
+Pillow
+langchain-community
