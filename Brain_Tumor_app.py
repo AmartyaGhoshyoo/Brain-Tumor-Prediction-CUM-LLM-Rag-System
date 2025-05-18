@@ -37,27 +37,27 @@ from tensorflow.keras.layers import Dropout
 from tensorflow.keras.regularizers import l2
 #
 import numpy as np
-# from PyPDF2 import PdfReader # to read the pdf file
+from PyPDF2 import PdfReader # to read the pdf file
 from dotenv import load_dotenv
 load_dotenv()
 import streamlit as st
 from langchain.text_splitter import RecursiveCharacterTextSplitter # Recursively breaks larger text into small chunk, one after another
 import os
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings,ChatGoogleGenerativeAI
 import google.generativeai as genai
 from langchain.vectorstores import FAISS # Vector database
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-model=genai.GenerativeModel('gemini-2.0-flash-exp')# temperature the more low we give the less productive it becomes and try to be obvious for the next word generation 
+model=ChatGoogleGenerativeAI(model= 'gemini-2.0-flash-exp',temperature=0.3)# temperature the more low we give the less productive it becomes and try to be obvious for the next word generation 
 
-# def get_pdf_text(pdf_docs):
-#     text=''
-#     for pdf in pdf_docs:
-#         pdf_reader=PdfReader(pdf) # contains in pages
-#         for page in pdf_reader.pages:
-#             text+=page.extract_text() # extracting text from the page and storing it in text variable
-#     return text
+def get_pdf_text(pdf_docs):
+    text=''
+    for pdf in pdf_docs:
+        pdf_reader=PdfReader(pdf) # contains in pages
+        for page in pdf_reader.pages:
+            text+=page.extract_text() # extracting text from the page and storing it in text variable
+    return text
 def break_text_into_chunks(text):
     text_splitter=RecursiveCharacterTextSplitter(chunk_size=10000,chunk_overlap=1000) # it's the class instance I have created, which will first created this empty object named text_splitter and implicitly passing the object in the constructor as a first argument and initialise it in specific memory particular for that instance
     chunks=text_splitter.split_text(text) # passing the text for chunking into the methodz
@@ -86,7 +86,7 @@ def get_conversational_chain():
     # Check below
 @st.cache_resource
 def load_model_once():
-    return load_model('Brain Tumor\WDFF-NET_files\model.h5')
+    return load_model('C:\Amartya\Brain Tumor\WDFF-NET_files\model.h5')
 def prediction(image):
     model_brain = load_model_once()
     with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as temp:
