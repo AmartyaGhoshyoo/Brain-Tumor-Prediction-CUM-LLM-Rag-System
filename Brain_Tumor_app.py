@@ -43,7 +43,7 @@ load_dotenv()
 import streamlit as st
 from langchain.text_splitter import RecursiveCharacterTextSplitter # Recursively breaks larger text into small chunk, one after another
 import os
-from langchain_google_genai import GoogleGenerativeAIEmbeddings,ChatGoogleGenerativeAI
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
 from langchain.vectorstores import FAISS # Vector database
 from langchain.chains.question_answering import load_qa_chain
