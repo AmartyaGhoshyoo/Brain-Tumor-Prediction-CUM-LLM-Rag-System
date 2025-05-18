@@ -49,7 +49,7 @@ from langchain.vectorstores import FAISS # Vector database
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-model=ChatGoogleGenerativeAI(model= 'gemini-2.0-flash-exp',temperature=0.3)# temperature the more low we give the less productive it becomes and try to be obvious for the next word generation 
+model=genai.GenerativeModel('gemini-2.0-flash-exp')# temperature the more low we give the less productive it becomes and try to be obvious for the next word generation 
 
 def get_pdf_text(pdf_docs):
     text=''
