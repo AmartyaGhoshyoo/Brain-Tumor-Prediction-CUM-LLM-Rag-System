@@ -1,4 +1,5 @@
 streamlit
+tensorflow==2.13.0
 scikit-image
 seaborn 
 opencv-python-headless
