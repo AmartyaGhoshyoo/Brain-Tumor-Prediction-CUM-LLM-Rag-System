@@ -37,7 +37,7 @@ from tensorflow.keras.layers import Dropout
 from tensorflow.keras.regularizers import l2
 #
 import numpy as np
-from PyPDF2 import PdfReader # to read the pdf file
+# from PyPDF2 import PdfReader # to read the pdf file
 from dotenv import load_dotenv
 load_dotenv()
 import streamlit as st
