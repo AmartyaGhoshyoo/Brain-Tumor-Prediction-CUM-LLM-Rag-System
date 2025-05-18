@@ -1,6 +1,8 @@
 streamlit
 tensorflow==2.13.0
 scikit-image
+scikit-learn
+numpy
 seaborn 
 opencv-python-headless
 google-generativeai
