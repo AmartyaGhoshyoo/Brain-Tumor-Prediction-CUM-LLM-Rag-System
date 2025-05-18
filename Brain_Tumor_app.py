@@ -51,13 +51,13 @@ from langchain.prompts import PromptTemplate
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model=genai.GenerativeModel('gemini-2.0-flash-exp')# temperature the more low we give the less productive it becomes and try to be obvious for the next word generation 
 
-def get_pdf_text(pdf_docs):
-    text=''
-    for pdf in pdf_docs:
-        pdf_reader=PdfReader(pdf) # contains in pages
-        for page in pdf_reader.pages:
-            text+=page.extract_text() # extracting text from the page and storing it in text variable
-    return text
+# def get_pdf_text(pdf_docs):
+#     text=''
+#     for pdf in pdf_docs:
+#         pdf_reader=PdfReader(pdf) # contains in pages
+#         for page in pdf_reader.pages:
+#             text+=page.extract_text() # extracting text from the page and storing it in text variable
+#     return text
 def break_text_into_chunks(text):
     text_splitter=RecursiveCharacterTextSplitter(chunk_size=10000,chunk_overlap=1000) # it's the class instance I have created, which will first created this empty object named text_splitter and implicitly passing the object in the constructor as a first argument and initialise it in specific memory particular for that instance
     chunks=text_splitter.split_text(text) # passing the text for chunking into the methodz
