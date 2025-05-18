@@ -2,12 +2,16 @@ streamlit
 tensorflow==2.13.0
 scikit-image
 seaborn 
+langchain==0.1.13
+langchain-core==0.1.45
+langchain-google-genai==0.0.6
 opencv-python-headless
 google-generativeai
 huggingface-hub
 faiss-cpu
+typing_extensions==4.10.0
+
 unstructured
-langchain-google-genai
 sentence-transformers
 python-dotenv
 pypdf2
