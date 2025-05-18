@@ -7,7 +7,7 @@ google-generativeai
 huggingface-hub
 faiss-cpu
 langchain-google-genai
-typing_extensions==4.7.1
+typing_extensions==4.5.0
 python-dotenv
 Pillow
 langchain-community
